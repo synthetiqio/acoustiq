@@ -1,0 +1,16 @@
+#[root application required deps]
+opencv-python
+PyAudio 
+port43 
+SpeechRecognition
+#pocketsphinx
+
+#[root application required deps]
+load_dotenv
+uvicorn
+
+#[API Interface for services]
+fastapi
+
+#[langchain LLM Support]
+#openai-whisper

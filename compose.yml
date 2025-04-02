@@ -1,0 +1,25 @@
+  services:
+  
+    sigio:
+      restart: always
+      build:
+        context:  .
+        dockerfile: Dockerfile
+      container_name: 'acoustiq'
+      devices:
+        - /dev/snd:/dev/snd
+      environment:
+        - REQUESTS_CA_BUNDLE=${REQUESTS_CA_BUNDLE}
+        - PULSE_SERVER=unix:/tmp/pulseaudio.socket 
+        - PULSE_COOKIE=/tmp/pulseaudio.cookie 
+        - OPENAI_API_KEY=${OPENAI_API_KEY}
+        - SIGNAL=${SIGNAL}
+      networks:
+        - synthetiq-agent
+      ports:
+        - 8000:8000
+
+  networks:
+    synthetiq-agent:
+      name: synthetiq-agent
+      driver: bridge
