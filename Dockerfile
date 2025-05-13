@@ -1,6 +1,6 @@
 
-FROM python:3.12-bullseye
-
+FROM python:3.12.10-slim-bookworm
+ARG REQUESTS_CA_BUNDLE
 LABEL maintainer="synthetiqsignals.com" \
     org.label-schema.docker.dockerfile="/Dockerfile" \
     org.label-schema.name="AcoustIQ AV Interface Image"
